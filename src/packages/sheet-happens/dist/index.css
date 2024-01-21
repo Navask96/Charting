@@ -1,0 +1,18 @@
+._PxIi8::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+._PxIi8::-webkit-scrollbar:vertical {
+  width: 13px;
+}
+._PxIi8::-webkit-scrollbar:horizontal {
+  height: 13px;
+}
+._PxIi8::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #c1c1c1;
+  border: 2px solid #fff;
+}
+._PxIi8::-webkit-scrollbar-track {
+  background-color: #fff;
+  border-radius: 0px;
+}

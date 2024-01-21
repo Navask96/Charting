@@ -1,0 +1,18 @@
+import { XY, Rectangle } from './types';
+export declare const addXY: (a: XY, b: XY) => XY;
+export declare const subXY: (a: XY, b: XY) => XY;
+export declare const mulXY: (a: XY, b: XY) => XY;
+export declare const maxXY: (a: XY, b: XY) => XY;
+export declare const minXY: (a: XY, b: XY) => XY;
+export declare const clampXY: (p: XY, min: XY, max?: XY) => XY;
+export declare const getDirectionStep: (direction: string) => XY;
+export declare const isSameXY: (a: XY, b: XY) => boolean;
+export declare const isSameSelection: (a: Rectangle, b: Rectangle) => boolean;
+export declare const isMaybeRowSelection: (selection: Rectangle) => boolean;
+export declare const isMaybeColumnSelection: (selection: Rectangle) => boolean;
+export declare const isRowSelection: (selection: Rectangle) => boolean;
+export declare const isColumnSelection: (selection: Rectangle) => boolean;
+export declare const isCellSelection: (selection: Rectangle) => boolean;
+export declare const isEmptySelection: (selection: Rectangle) => boolean;
+export declare const isPointInsideSelection: (selection: Rectangle, point: XY) => boolean;
+export declare const normalizeSelection: (selection: Rectangle) => Rectangle;

@@ -1,0 +1,52 @@
+import React, { KeyboardEventHandler, ReactElement } from 'react';
+import { XY, Rectangle, CellLayout, CellProperty, CellContentType, RowOrColumnProperty, Selection, Change, SheetPointerEvent, InputStyle, SheetStyle, Style, VisibleLayout } from './types';
+export declare type SheetInputProps = {
+    value: string;
+    autoFocus: boolean;
+    onKeyDown: KeyboardEventHandler<HTMLElement>;
+    onChange: (value: string) => void;
+    style: InputStyle;
+};
+export declare type SheetRenderProps = {
+    visibleCells: VisibleLayout;
+    cellLayout: CellLayout;
+    selection: Rectangle;
+    editMode: boolean;
+};
+export declare type SheetProps = {
+    cellWidth?: RowOrColumnProperty<number>;
+    cellHeight?: RowOrColumnProperty<number>;
+    columnHeaders?: RowOrColumnProperty<CellContentType>;
+    columnHeaderStyle?: RowOrColumnProperty<Style>;
+    cellStyle?: CellProperty<Style>;
+    readOnly?: CellProperty<boolean>;
+    canSizeColumn?: RowOrColumnProperty<boolean>;
+    canSizeRow?: RowOrColumnProperty<boolean>;
+    canOrderColumn?: RowOrColumnProperty<boolean>;
+    canOrderRow?: RowOrColumnProperty<boolean>;
+    sourceData?: CellProperty<string | number | null>;
+    displayData?: CellProperty<CellContentType>;
+    editData?: CellProperty<string>;
+    editKeys?: CellProperty<string>;
+    sheetStyle?: SheetStyle;
+    selection?: Rectangle;
+    secondarySelections?: Selection[];
+    cacheLayout?: boolean;
+    dontCommitEditOnSelectionChange?: boolean;
+    inputComponent?: (x: number, y: number, props: SheetInputProps, commitEditingCell?: (value?: string | number | null) => void) => ReactElement | undefined;
+    renderInside?: (props: SheetRenderProps) => React.ReactNode;
+    renderOutside?: (props: SheetRenderProps) => React.ReactNode;
+    onSelectionChanged?: (minX: number, minY: number, maxX: number, maxY: number) => void;
+    onRightClick?: (e: SheetPointerEvent) => void;
+    onChange?: (changes: Array<Change>) => void;
+    onColumnOrderChange?: (indices: number[], order: number) => void;
+    onRowOrderChange?: (indices: number[], order: number) => void;
+    onCellWidthChange?: (indices: number[], value: number) => void;
+    onCellHeightChange?: (indices: number[], value: number) => void;
+    onScrollChange?: (visibleRows: number[], visibleColumns: number[]) => void;
+};
+export declare type SheetRef = CellLayout & {
+    startEditingCell: (editCell: XY, arrowKeyCommitMode?: boolean) => void;
+};
+declare const Sheet: React.ForwardRefExoticComponent<SheetProps & React.RefAttributes<SheetRef>>;
+export default Sheet;
